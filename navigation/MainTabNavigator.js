@@ -21,7 +21,7 @@ const HomeStack = createStackNavigator(
 );
 
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+  tabBarLabel: 'Army',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -36,21 +36,14 @@ HomeStack.navigationOptions = {
 
 HomeStack.path = '';
 
-const LinksStack = createStackNavigator(
+
+const USMCStack = createStackNavigator(
   {
-    Links: LinksScreen,
+    Links:LinksScreen,
   },
   config
-);
+)
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
-  ),
-};
-
-LinksStack.path = '';
 
 const SettingsStack = createStackNavigator(
   {
@@ -68,10 +61,19 @@ SettingsStack.navigationOptions = {
 
 SettingsStack.path = '';
 
+USMCStack.navigationOptions ={
+  tabBarLabel:'USMC',
+  tabBarIcon: ({ focused }) =>(
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-add-circle-outline' : 'md-add-circle-outline'}/>
+  )
+};
+
+USMCStack.path = '';
+
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
-  LinksStack,
   SettingsStack,
+  USMCStack
 });
 
 tabNavigator.path = '';
